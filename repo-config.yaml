@@ -1,27 +1,8 @@
 repos:
-  - id: /.*/
-    allowed_overrides: [workflow]
-    pre_workflow_hooks:
-      - run: "cat ~/my-project/atlantis-example/atlantis.yaml > atlantis.yaml"
+- id: "/.*/"
+  workflow: terragrunt
 
-workflows:
-  poc:
-    plan:
-      steps:
-      - env:
-          name: TF_WORKSPACE
-          command: echo $WORKSPACE
-      - init
-      - plan:
-          extra_args: ["-var-file=tfvars/$WORKSPACE.tfvars"]
-
-    apply:
-      steps:
-      - env:
-          name: TF_WORKSPACE
-          command: echo $WORKSPACE
-      - apply
-  
+workflows: 
   terragrunt:
     plan:
       steps:
