@@ -10,12 +10,12 @@ workflows:
       steps:
       - env:
           name: TERRAGRUNT_TFPATH
-          command: 'echo "terraform${ATLANTIS_TERRAFORM_VERSION}"'
+          command: 'echo terraform'
       - run: terragrunt plan -input=false -out=$PLANFILE
       - run: terragrunt show -json $PLANFILE > $SHOWFILE
     apply:
       steps:
       - env:
           name: TERRAGRUNT_TFPATH
-          command: 'echo "terraform${ATLANTIS_TERRAFORM_VERSION}"'
+          command: 'echo terraform'
       - run: terragrunt apply -input=false $PLANFILE
