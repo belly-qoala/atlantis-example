@@ -3,6 +3,6 @@ terraform {
 }
 
 inputs = {
-  length  = 10
-  special = false
+  length  = 25
+  special = true
 }
