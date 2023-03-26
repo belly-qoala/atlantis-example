@@ -1,7 +1,7 @@
 version: 3
 projects:
 - name: poc
-  dir: .
+  # dir: .
   workspace: poc
   workflow: terragrunt
   autoplan:
